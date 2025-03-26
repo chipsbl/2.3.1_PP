@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Users</title>
+</head>
+<style>
+    body {
+        background-color: slategrey;
+    }
+    header {
+        text-align: center;
+        color: #fdffb0;
+        font-size: 40px;
+        text-shadow: 1px 1px 2px rgba(14, 1, 1, 0.87);
+    }
+    table {
+        background-color: aliceblue;
+        width: 50%;
+        border-collapse: collapse;
+        margin: auto;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    th, td {
+        padding: 6px;
+        text-align: center;
+    }
+    th {
+        font-size: 40px;
+    }
+    td {
+        font-size: 25px;
+    }
+    button {
+        justify-content: center;
+    }
+</style>
+<body>
+<header>
+    <h1>Таблица пользователей</h1>
+</header>
+<table>
+    <thead>
+    <tr>
+        <th>№</th>
+        <th>Имя</th>
+        <th>Фамилия</th>
+        <th>Почта</th>
+        <th>Пароль</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${users}">
+        <td th:text="${user.getId()}">№</td>
+        <td th:text="${user.getFirstName()}">Имя</td>
+        <td th:text="${user.getLastName()}">Фамилия</td>
+        <td th:text="${user.getEmail()}">Почта</td>
+        <td th:text="${user.getPassword()}">Пароль</td>
+    </tr>
+    </tbody>
+</table>
+<button>Добавить пользователя</button>
+<button>Изменить пользователя</button>
+<button>Удалить пользователя</button>
+</body>
+</html>
