@@ -17,7 +17,7 @@ public class UserDaoHibernateImpl implements UserDaoHibernate{
 
     @Override
     public void save(User user) {
-        em.persist(user);
+        em.merge(user);
     }
 
     @Override
@@ -26,12 +26,12 @@ public class UserDaoHibernateImpl implements UserDaoHibernate{
     }
 
     @Override
-    public void update(User user) {
-        em.merge(user);
+    public List<User> getAll(){
+        return em.createQuery("SELECT p FROM User p", User.class).getResultList();
     }
 
     @Override
-    public List<User> getAll(){
-        return em.createQuery("SELECT p FROM User p", User.class).getResultList();
+    public User findById(int id) {
+        return em.find(User.class, id);
     }
 }
