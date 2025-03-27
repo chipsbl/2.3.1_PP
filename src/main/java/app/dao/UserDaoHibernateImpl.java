@@ -5,6 +5,7 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.PersistenceProperty;
 import javax.transaction.Transactional;
 import java.util.List;
 
@@ -21,8 +22,9 @@ public class UserDaoHibernateImpl implements UserDaoHibernate{
     }
 
     @Override
-    public void delete(User user) {
-        em.remove(user);
+    public void deleteById(int id) {
+        User u = em.find(User.class, id);
+        em.remove(u);
     }
 
     @Override

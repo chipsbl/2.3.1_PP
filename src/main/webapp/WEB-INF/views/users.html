@@ -100,7 +100,7 @@
         <td>
             <div>
                 <a th:href="@{'/users/update?id=' + ${user.getId()}}" class="btn_update">Редактировать</a>
-                <a th:href="@{/users/delete}" class="btn_delete">Удалить</a>
+                <a th:href="@{'/users/delete?id=' + ${user.getId()}}" class="btn_delete">Удалить</a>
             </div>
         </td>
     </tr>

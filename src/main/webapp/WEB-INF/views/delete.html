@@ -5,8 +5,14 @@
     <title>Title</title>
 </head>
 <style>
+    body {
+        background-color: #414853;
+    }
 </style>
 <body>
-<header>Изменение пользователя</header>
+<form th:method="POST" th:action="@{'/users/delete?id=' + ${user.getId()}}">
+    <label>Вы действительно хотите удалить данного пользователя?</label>
+    <input type="submit" value="Да">
+</form>
 </body>
 </html>

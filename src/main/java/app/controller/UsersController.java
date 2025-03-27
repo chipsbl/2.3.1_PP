@@ -57,11 +57,18 @@ public class UsersController {
         return "redirect:/users/";
     }
 
+    //Окно всплытия удаление пользователя
+    @GetMapping("/delete")
+    public String deleteUserWindow(@RequestParam int id, Model model) {
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+        return "delete";
+    }
+
     //Удаление пользователя
     @PostMapping("/delete")
-    public String deleteUser(@RequestParam int id, Model model) {
-        User user = userService.findById(id);
-        userService.delete(user);
+    public String deleteUser(@RequestParam int id) {
+        userService.delete(id);
         return "redirect:/users/";
     }
 }
