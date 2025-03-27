@@ -42,9 +42,6 @@
         padding-inline: 50px;
         padding-bottom: 10px;
     }
-    a {
-
-    }
 </style>
 <body>
 <header>
@@ -61,13 +58,13 @@
     </div>
     <div class="input_info">
         <label for="email">Введите почту для пользователя</label>
-        <input type="text" th:field="*{email}" id="email">
+        <input type="email" th:field="*{email}" id="email">
     </div>
     <div class="input_info">
         <label for="password">Введите пароль для пользователя</label>
-        <input type="text" th:field="*{password}" id="password">
+        <input type="password" th:field="*{password}" id="password">
     </div>
-    <input type="submit" value="Создать пользователя">
+    <input class="btn" type="submit" value="Создать пользователя">
 </form>
 </body>
 </html>

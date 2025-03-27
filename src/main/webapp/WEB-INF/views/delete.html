@@ -6,13 +6,50 @@
 </head>
 <style>
     body {
-        background-color: #414853;
+        background-color: #708090;
+    }
+    .delete-form {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        background-color: #708090;
+    }
+
+    .delete-confirm {
+        text-align: center;
+        background-color: #fff;
+        padding: 40px;
+        border-radius: 10px;
+        max-width: 500px;
+        width: 100%;
+        font-size: 30px;
+    }
+
+    .btn-delete {
+        padding: 12px 30px;
+        background-color: #ff4141;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+        transition: background-color 0.3s;
+    }
+
+    .btn-delete:hover {
+        background-color: #e03a3a;
     }
 </style>
 <body>
-<form th:method="POST" th:action="@{'/users/delete?id=' + ${user.getId()}}">
-    <label>Вы действительно хотите удалить данного пользователя?</label>
-    <input type="submit" value="Да">
+<form th:method="POST" th:action="@{'/users/delete?id=' + ${user.getId()}}" class="delete-form">
+    <div class="delete-confirm">
+        <p>Вы действительно хотите удалить данного пользователя?</p>
+        <input class="btn-delete" type="submit" value="Да">
+        <input type="button" class="btn-back" value="Назад" th:onclick="'window.location.href=/'' + @{users} + '/''">
+    </div>
 </form>
 </body>
 </html>
