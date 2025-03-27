@@ -4,18 +4,20 @@
       xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Users</title>
+    <title>Пользователи</title>
 </head>
 <style>
     body {
         background-color: slategrey;
     }
+
     header {
         text-align: center;
         color: #fdffb0;
         font-size: 40px;
         text-shadow: 1px 1px 2px rgba(14, 1, 1, 0.87);
     }
+
     table {
         background-color: aliceblue;
         width: 50%;
@@ -31,17 +33,21 @@
         padding: 6px;
         text-align: center;
     }
+
     th {
         font-size: 40px;
         background-color: #b6c6ca;
     }
+
     td {
         font-size: 25px;
     }
+
     .buttons {
         padding-top: 20px;
         text-align: center;
     }
+
     .btn {
         display: inline-block;
         padding: 10px 20px;
@@ -54,11 +60,12 @@
         margin-inline: 70px;
     }
 
-    .config_btn div{
+    .config_btn div {
         margin: 10px;
         display: flex;
         gap: 10px;
     }
+
     .btn_update {
         display: inline-block;
         padding: 10px 20px 10px 30px;
@@ -69,6 +76,7 @@
         font-size: 16px;
         text-align: center;
     }
+
     .btn_delete {
         display: inline-block;
         padding: 10px 20px;
@@ -91,7 +99,7 @@
         <th>Имя</th>
         <th>Фамилия</th>
         <th>Почта</th>
-        <th>Пароль</th>
+        <th>Возраст</th>
         <th>Редактор</th>
     </tr>
     </thead>
@@ -101,7 +109,7 @@
         <td th:text="${user.getFirstName()}">Имя</td>
         <td th:text="${user.getLastName()}">Фамилия</td>
         <td th:text="${user.getEmail()}">Почта</td>
-        <td th:text="${user.getPassword()}">Пароль</td>
+        <td th:text="${user.getAge()}">Пароль</td>
         <td class="config_btn">
             <div>
                 <a th:href="@{'/users/update?id=' + ${user.getId()}}" class="btn_update">Редактировать</a>

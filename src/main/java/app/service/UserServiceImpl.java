@@ -11,7 +11,7 @@ import java.util.List;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
 
     private final UserDaoHibernate userDao;
 
@@ -36,7 +36,7 @@ public class UserServiceImpl implements UserService{
         u.setFirstName(user.getFirstName());
         u.setLastName(user.getLastName());
         u.setEmail(user.getEmail());
-        u.setPassword(user.getPassword());
+        u.setAge(user.getAge());
         userDao.save(u);
     }
 

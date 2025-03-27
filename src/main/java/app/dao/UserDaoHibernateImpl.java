@@ -5,13 +5,12 @@ import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.PersistenceProperty;
 import javax.transaction.Transactional;
 import java.util.List;
 
 @Repository
 @Transactional
-public class UserDaoHibernateImpl implements UserDaoHibernate{
+public class UserDaoHibernateImpl implements UserDaoHibernate {
 
     @PersistenceContext
     private EntityManager em;
@@ -28,7 +27,7 @@ public class UserDaoHibernateImpl implements UserDaoHibernate{
     }
 
     @Override
-    public List<User> getAll(){
+    public List<User> getAll() {
         return em.createQuery("SELECT p FROM User p", User.class).getResultList();
     }
 

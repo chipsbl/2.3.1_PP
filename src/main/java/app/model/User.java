@@ -6,6 +6,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "user")
@@ -15,26 +19,33 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column()
+    @Column(nullable = false)
+    @NotEmpty(message = "There are no empty names")
+    @Size(min = 2, max = 30, message = "Keep the range between 2 and 30 characters")
     private String firstName;
 
-    @Column()
+    @Column(nullable = false)
+    @NotEmpty(message = "There are no empty second names")
+    @Size(min = 2, max = 30, message = "Keep the range between 2 and 30 characters")
     private String lastName;
 
-    @Column()
+    @Column(nullable = false)
+    @NotEmpty(message = "There are no empty email")
+    @Email(message = "Please ensure that your email is spelled correctly")
     private String email;
 
-    @Column()
-    private String password;
+    @Column(nullable = false)
+    @Min(value = 0, message = "A person cannot be less than 0 years old")
+    private int age;
 
     public User() {
     }
 
-    public User(String firstName, String lastName, String email, String password) {
+    public User(String firstName, String lastName, String email, int age) {
         this.firstName = firstName;
         this.lastName = lastName;
         this.email = email;
-        this.password = password;
+        this.age = age;
     }
 
     public int getId() {
@@ -53,8 +64,8 @@ public class User {
         return email;
     }
 
-    public String getPassword() {
-        return password;
+    public int getAge() {
+        return age;
     }
 
     public void setId(int id) {
@@ -73,8 +84,8 @@ public class User {
         this.email = email;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setAge(int age) {
+        this.age = age;
     }
 
     @Override
@@ -84,7 +95,7 @@ public class User {
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
+                ", age='" + age + '\'' +
                 '}';
     }
 }

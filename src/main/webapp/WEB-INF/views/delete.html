@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Удаление пользователя</title>
 </head>
 <style>
     body {
         background-color: #708090;
     }
+
     .delete-form {
         display: flex;
         justify-content: center;
@@ -36,11 +37,17 @@
         font-size: 16px;
         cursor: pointer;
         margin-top: 20px;
-        transition: background-color 0.3s;
     }
 
-    .btn-delete:hover {
-        background-color: #e03a3a;
+    .btn-back {
+        padding: 12px 30px;
+        background-color: #ff4141;
+        color: white;
+        border-radius: 5px;
+        font-size: 16px;
+        text-align: center;
+        cursor: pointer;
+        border: none;
     }
 </style>
 <body>
@@ -48,7 +55,7 @@
     <div class="delete-confirm">
         <p>Вы действительно хотите удалить данного пользователя?</p>
         <input class="btn-delete" type="submit" value="Да">
-        <input type="button" class="btn-back" value="Назад" th:onclick="'window.location.href=/'' + @{users} + '/''">
+        <input class="btn-back" type="button" value="Назад" onclick="window.location.href='/users/'">
     </div>
 </form>
 </body>
